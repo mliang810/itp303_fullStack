@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Photo Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.clearfloat {
+			clear: both;
+		}
+
+		.section {
+			width: 600px;
+			margin: auto;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.thumbnail {
+			border: 1px solid #000;
+			width: 138px;
+			height: 138px;
+			margin: 5px;
+			float: left;
+			overflow: hidden;
+
+			opacity: 0.6;
+
+			cursor: pointer;
+		}
+
+		.thumbnail:hover {
+			opacity: 1.0
+		}
+
+		.thumbnail > img {
+			height: 100%;
+		}
+
+		#main-img-container {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		#main-img-container img {
+			max-width: 100%;
+		}
+
+		#main-img-container p {
+			font-size: 1.5em;
+		}
+
+		/* Desktops */
+		@media (max-width: 1199px) {
+
+		}
+
+		/* Tablets */
+		@media (max-width: 991px) {
+
+		}
+
+		/* Phones */
+		@media (max-width: 767px) {
+			#thumbnail-wrapper {
+				width: 300px;
+				margin: auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="gallery" class="section">
+		<h1>USC Image Gallery</h1>
+
+		<div id="thumbnail-wrapper">
+			<div class="thumbnail">
+				<img src="images/thumb_1.jpg" alt="USC Village">
+			</div>
+
+			<div class="thumbnail">
+				<img src="images/thumb_2.jpg" alt="Tutor Campus Center">
+			</div>
+
+			<div class="thumbnail">
+				<img src="images/thumb_3.jpg" alt="VKC">
+			</div>
+
+			<div class="thumbnail">
+				<img src="images/thumb_4.jpg" alt="Fountain">
+			</div>
+
+			<div class='clearfloat'></div>
+
+		</div> <!-- #thumbnail-wrapper -->
+
+		<div id="main-img-container">
+			<img src="images/thumb_1.jpg" alt="USC Village" id="main-img">
+			<p>Usc Village</p>
+		</div> <!-- #main-img-container -->
+
+	</div> <!-- .section -->
+
+	<!-- everytime you click on a thumbnail, reintialize them to be transparent/gray border. Then right after that, change the color to red/remove transparency for the *one* thumbnail that you did click on. -->
+</body>
+
+<script type="text/javascript">
+	let pics = document.querySelectorAll(".thumbnail")
+	for(let i=0; i<pics.length;i++){ //means that the inside functions apply to all the boxes
+		pics[i].onclick = function(){
+			for(let i=0; i<pics.length;i++){ //everytime you click, everything becomes transparent again
+				pics[i].style.opacity="60%";
+				pics[i].style.border="1px solid #000";
+			}
+			//outside of the intializing loop, pics[i] becomes solid
+				this.style.border="1px solid red";
+				this.style.opacity="100%";
+
+			//just checking
+			console.log(this.children[0]);
+
+			//also need to change the picutres
+			document.querySelector("#main-img").src = this.children[0].src; //why do we have to specify the index of the child if theres only one child?
+			document.querySelector("#main-img").alt = this.children[0].alt;
+			document.querySelector("#main-img-container p").innerHTML = this.children[0].alt;
+		}
+	}
+	
+
+</script>
+</html>

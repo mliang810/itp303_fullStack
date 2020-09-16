@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lorem Ipsum</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js.css">
+</head>
+<body>
+	<div class="section">
+		<h1>JS Playground</h1>
+	</div> <!-- .section -->
+
+	<div id="dom-section" class="section">
+		<h2>DOM selectors 101</h2>
+		<p id="first" class="paragraph">I am the first paragraph. Use JS to change me.</p>
+		<p id="second" class="paragraph">I am the second paragraph. Use JS to change me.</p>
+	</div> <!-- #dom-section -->
+
+	<div id="button-section" class="section">
+		<h2>Alert Window</h2>
+		<p>Test these buttons:</p>
+		<button id="btn-click">Don't Click Me</button>
+		<button id="btn-touch">Don't Touch Me</button>
+	</div> <!-- #button-section -->
+
+	<div id="kanye-section" class="section">
+		<h2>Image Switch</h2>
+		<p>Hover over the image to flip it:</p>
+		<img id="kanye" src="images/kanye-1.jpg" alt="Kanye West">
+	</div> <!-- #kanye-section -->
+
+	<div id="color-wrapper">
+		<div class="color-box" id="box1" data-color="#000">
+			#000
+		</div>
+		<div class="color-box" id="box2" data-color="#FFF">
+			#FFF
+		</div>
+		<div class="color-box" id="box3" data-color="#CCC">
+			#CCC
+		</div>
+		<div class="color-box" id="box4" data-color="#777">
+			#777
+		</div>
+		<div class="color-box" id="box5" data-color="#FC0">
+			#FC0
+		</div>
+		<div class="color-box" id="box6" data-color="#900">
+			#900
+		</div>
+
+		<div class="clearfloat"></div>
+	</div> <!-- #color-wrapper -->
+
+	<div id="dom-section" class="section">
+		<h2>DOM Traversal</h2>
+
+		<h3>Lorem ipsum dolor sit amet</h3>
+
+		<p>Consectetur adipiscing elit. Proin nibh eros, tincidunt at metus non, ultrices vulputate felis. Suspendisse potenti. Vivamus sit amet cursus dolor, at lacinia dui. Pellentesque fringilla enim nibh, quis lobortis ante dictum vel. Etiam tortor turpis, venenatis sit amet est et, dictum auctor dolor. Etiam vehicula iaculis pharetra. Sed viverra interdum efficitur.</p>
+
+		<h3>Quisque volutpat eros ullamcorper</h3>
+		<p>Velit pulvinar, at tincidunt orci placerat. Morbi blandit neque est, id posuere urna accumsan non. Pellentesque a ligula sed velit elementum efficitur. Proin ex lectus, porta vitae accumsan ut, mattis ac ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam nec mauris tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed diam volutpat odio mollis accumsan. Proin tempus erat sed lacinia condimentum. Fusce molestie ornare finibus. Nunc dictum vulputate scelerisque. Donec elementum semper arcu, eget blandit magna varius et. Integer pulvinar sem non sem volutpat varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+
+		<h3>Nulla elit eros</h3>
+		<p>Interdum sed, finibus in nibh. Praesent eros lectus, fermentum at enim non, porta ultrices nisi. Aliquam odio libero, commodo id pulvinar eget, gravida non turpis. In mi massa, placerat ut ex sed, mollis imperdiet elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi ultrices scelerisque fermentum. Quisque luctus sapien vitae dignissim ornare. Donec non lorem sagittis, condimentum augue vel, suscipit nisl. Praesent blandit eu ligula eu dictum. Donec faucibus purus in urna mollis, nec vulputate sem mollis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam vulputate dignissim libero, ut blandit massa ultrices et. Fusce mattis luctus nibh. Donec rhoncus pretium lectus id sodales.</p>
+
+	</div> <!-- #dom-section -->
+
+<script>
+	// Write JS here
+	console.log("Hi!");
+
+	//variable
+	let name = "Michelle";
+
+	//function
+	function sayHello(){
+		alert("Hello Loser!");
+	}
+
+	//call a function
+	sayHello();
+
+	//JS is really good at selecting/grabbing any HTML elements from the DOM.
+	//document.getElementById()
+
+	console.log(document.getElementById("first")); //will return the HTML element
+
+	//after getting access to an element, you can change its 1) text amd 2) CSS properties
+
+	//1. Text
+	document.getElementById("first").innerHTML = "<em>I got changed by JS</em>"
+
+	//2. Change CSS
+	document.getElementById("first").style.color="red";
+
+	//to avoid inline CSS, can add/remove class names to any HTML element
+	document.getElementById("first").classList.add("big");
+
+
+	// .querySelector() method allows us to select elements using CSS syntax (more popular) 
+	//javascript uses camelCase instead of dashes btw. So replace those. 
+	// .querySelector() only returns the first match. 
+	document.querySelector("#second").style.color="blue";
+	document.querySelector(".paragraph").style.backgroundColor="yellow";
+
+	//.querySelectorAll() returns a NodeList (an array) of all the matches
+	console.log(document.querySelectorAll(".paragraph")); //can see in consolelog that its an array
+
+	//doesn't work bc the NodeList is an array. cant do .style on multiple things at once. must go one at a time. 
+	//document.querySelectorAll(".paragraph").style.backgroundColor = "yellow"
+
+	//to modify a NodeList, must iterate through it using a for loop
+	let paragraphs = document.querySelectorAll(".paragraph");
+
+	for(let i=0; i<paragraphs.length;i++){
+		paragraphs[i].style.fontSize="30px";
+	}
+
+
+
+	// --- EVENT DRIVEN PROGRAMMING
+
+	//register a click event for the #btn-click
+	//when somebody clicks this button, something shall happen
+	
+	document.querySelector("#btn-click").onclick = function(){
+		//the following code will happen each time someone clicks on #btn-click
+		alert("AHHH DONT CLICK ME")
+		console.log("clicked...the button wasn't happy")
+	}
+
+	//can also call functions from existing methods
+	//document.querySelector("#btn-click").onclick = sayHello;
+
+	//if you put() on the function, it forces the computer to just run it, and just once. 
+	//document.querySelector("#btn-click").onclick = sayHello();
+
+
+	document.querySelector("#btn-touch").onmouseenter= function(){
+		//the following code will happen each time someone clicks on #btn-click
+		alert("why did you....go away")
+		console.log("try not to hover around this one")
+	}
+
+	// Newer way of writing event handlers. 
+	document.querySelector("#btn-click").addEventListener("click",function(){
+		//can pass a function as a secpmd parameter
+		alert("AHHHHHHHHHH STOP");
+	});
+
+	// ----- Image SWAP
+	document.querySelector("#kanye").onmouseenter = function(){
+		/**
+		document.querySelector("#kanye").src = "images/kanye-2.jpg"
+		document.querySelector("#kanye").alt = "poopity scoop"
+		*/
+
+		//EASIER WAY
+		//this keyword - in this context - refers to whatever element that was just triggered
+
+		this.src = "images/kanye-2.jpg"
+	}
+
+	//event handler to swtich back
+	document.querySelector("#kanye").onmouseleave = function(){
+		/**
+		document.querySelector("#kanye").src = "images/kanye-1.jpg"
+		document.querySelector("#kanye").alt = "I've been changed..."
+		*/
+		this.src = "images/kanye-1.jpg"
+	}
+
+
+	// ---- colored boxes
+	// one way to go about this (Tedious way)
+	/*
+	document.querySelector("#Box1").onclick = function(){
+		document.querySelector("body").style.backgroundColor="#000"
+	}
+	document.querySelector("#Box2").onclick = function(){
+		document.querySelector("body").style.backgroundColor="#FFF"
+	}
+	document.querySelector("#Box3").onclick = function(){
+		document.querySelector("body").style.backgroundColor="#CCC"
+	}
+	*/
+
+	//queryselectorall returns a nodeList/array
+	let boxes = document.querySelectorAll(".color-box");
+
+	//iterate through all the boxes and create an event handler for each box
+	for(let i = 0; i<boxes.length;i++){
+		boxes[i].onclick = function(){
+			//document.querySelector("body").style.backgroundColor="#000";
+			//each box has an attribute called datacolor. could call data-color anything, as long as the prefix is "data-"
+			document.querySelector("body").style.backgroundColor=boxes[i].dataset.color; //means go grab the "color" attribute off "data-"
+		}
+	}
+
+	//----ACCORDION
+	//collapsible boxes
+
+	//grab all <h3> that are children of #dom-section
+	let titles = document.querySelectorAll("#dom-section h3") //looking at all h3 within #dom-section
+	for(let i=0; i<titles.length;i++){
+		titles[i].onclick = function(){
+			//JavaScropt os SUPER specific. Techincally the next sibling of h3 is not <p>. Its white space. The thing that directly comes after the <p> tag is white space (counts indentations, empty lines, etc)
+			//thats why you want to use nextElementSibling instead of nextSibling. It excludes whitespace.
+			//console.log(this.nextSibling);
+
+			console.log(this.nextElementSibling);
+
+			/*//hide the <p> tag
+			this.nextElementSibling.classList.add("hide"); //hides the ptag*/
+
+			//how to do the toggle effect (expand/collapse)
+			//use if statements
+
+			if(this.nextElementSibling.classList.contains("hide")){
+				// <p> has class name hide means that the paragraph is currently hidden
+				this.nextElementSibling.classList.remove("hide")
+			}
+
+			else{
+				this.nextElementSibling.classList.add("hide")
+			}	
+			
+		}
+	}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

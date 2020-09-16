@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Michelle's HTML Page :P</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600&display=swap');
+
+		html, body{ /*removing any extra spacing from the perimeter of the whole browser*/
+			margin:0;
+			padding:0;
+
+			/*adding a gif as background*/
+			background-image: url('https://i.imgur.com/9WgJg0G.gif');
+    		background-size: cover;
+    		height: 100vh;
+		}
+
+		.stopfloat{
+			clear: both;
+		}
+
+		#wholepage{
+			margin:auto;
+			width:800px;
+			background-color:none;
+		}
+
+		#special{
+			/*background-color: #FFBDB0;*/
+
+			/*background: rgb(255, 200, 86); 
+			/*Fallback for older browsers without RGBA-support*/ 
+    		/*background: rgba(255, 200, 86, 0.6);*/
+    		background-color: none;
+
+			padding:2px;
+			width:500px;
+			margin:auto;
+			font-family: 'Baloo Chettan 2', cursive;
+
+			/* for fun*/
+			-webkit-text-stroke: 1px lightyellow;
+			-webkit-text-stroke-width: 2px;
+			font-size: 30px;
+
+		}
+
+		#pic{
+			width:100px;
+			padding-left:90px;
+			padding-right:90px;
+		}
+		#color{
+			color:yellow;
+		}
+		.section{
+			background-color: none;
+			padding:5px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+
+		.column{
+			font-family: 'Baloo Chettan 2', cursive;
+			/*background-color: #FFD291;*/
+
+			background: rgb(255, 198, 116);
+    		background: rgba(255, 198, 116, 0.85);
+
+			border:3px dotted #D06933;
+			float:left;
+			width:300px;
+			height:300px;
+			margin:20px;
+			padding:24px;
+			padding-top: 15px
+		}
+
+		h1, h2{
+			text-align:center;
+			margin:5px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wholepage">
+<!--first ROW-->
+		<div id="special">
+			<h1>Michelle Liang</h1>
+			<h2>liangmic@usc.edu</h2>
+		</div>
+<!--next ROW-->
+		<div class="section">
+	<!--next column-->
+			<div class="column">
+				My favorite color is <span id="color">yellow</span>! 
+				<br>My favorite activity is drawing.
+				<img src="imageslab1or2/chick.png" id="pic" alt="a chicken I didn't draw"/> 
+
+				<h2>Favorite Sites</h2>
+				<ul>
+					<li><a href="https://www.youtube.com/">YouTube</a></li>
+					<li><a href="https://www.netflix.com/">Netflix</a></li>
+					<li><a href="http://en.bigpixel.cn/t/5834170785f26b37002af46d">Megapicture of Shanghai</a></li>
+				</ul>
+			</div>
+	<!--next column-->
+			<div class="column">
+				<h2>Fall 2020 Classes</h2>
+				<ul>
+					<li>ITP 303</li>
+					<li>ITP 265</li>
+					<li>MATH 226</li>
+					<li>BISC 421</li>
+					<li>PSYC 274</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="stopfloat"></div>
+<!--next ROW-->
+		<div class="section">
+	<!--next column-->
+			<div class="column">
+				<h2>Assignments</h2>
+				<ul>
+					<li><a href="http://303.itpwebdev.com/~liangmic/assignment1/interest.html">Assignment 1</a></li>
+					<li><a href="http://303.itpwebdev.com/~liangmic/assignment2/product.html">Assignment 2</a></li>
+					<li><a href="http://303.itpwebdev.com/~liangmic/assignment3/home.html">Assignment 3</a></li>
+					<li><a href="http://303.itpwebdev.com/~liangmic/assignment4/tshirt-customizer.html">Assignment 4</a></li>
+				</ul>
+			</div>
+	<!--next column-->
+			<div class="column">
+				<h2>Labs</h2>
+				<ul>
+					<li><a href="http://303.itpwebdev.com/~liangmic/student_page.html">Lab 1 and 2</a></li>
+					<li><a href="http://303.itpwebdev.com/~liangmic/lab3/flexbox-nav.html">Lab 3</a></li>
+					<li><a href=http://303.itpwebdev.com/~liangmic/lab4/lab04.html>Lab 4</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="stopfloat"></div>
+	</div>
+</body>
+</html>

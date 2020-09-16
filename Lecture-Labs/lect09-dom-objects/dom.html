@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation and JS Objects</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-4">
+			<h1 class="col-12">Create Elements on the fly</h1>
+			<div class="col-12 mt-4">
+				<form id="simple-form">
+					<div class="form-row">
+						<div class="col-12 mt-2 col-sm-3 mt-sm-0">
+							<label for="input" class="sr-only">Add a paragraph</label>
+							<input type="text" class="form-control" id="input" placeholder="Add some text">
+						</div> 
+
+						<div class="col-12 mt-2 col-sm-auto mt-sm-0">
+							<button role="button" type="submit" class="btn btn-primary">Add</button>
+							<button role="button" type="button" class="btn btn-danger" id="btn-delete">Delete All</button>
+						</div> <!-- .col -->
+					</div>
+				</form>
+			</div>
+			<div class="col-12 mt-4">
+				<div id="paragraphs">
+					<p class="red">I am a paragraph</p>
+					<p class="red">I am a second paragraph</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+<script>
+	document.querySelector("#simple-form").onsubmit = function(event){
+		//prevent form from being submitted
+		//can also just write return false; instead of writing event.preventdefault()
+		event.preventDefault();
+		console.log("onsubmit");
+		
+		//grab what the user typed in
+		let userInput = document.querySelector("#input").value.trim();
+		console.log(userInput);
+
+
+		//every time we submit, we want to dynamically create a <p> to hold our submissions
+		let pElement = document.createElement("p");
+		console.log(pElement);
+
+		pElement.innerHTML = userInput; //put userinput inside this new <p>
+		pElement.classList.add("red"); //making the words in it red
+
+		//make the ptag a child of the div #paragraphs 
+		document.querySelector("#paragraphs").appendChild(pElement);
+
+		//clear out the input after addings
+		document.querySelector("#input").value = "";
+	}
+
+	//TO REMOVE ENTRIES
+	document.querySelector("#btn-delete").onclick = function(){
+		console.log("onclick - delete");
+
+		let paragraphs = document.querySelector("#paragraphs");
+
+		//.hasChildNodes) - returns true or false to let us know if the parent has children
+		while(paragraphs.hasChildNodes()){
+			//paragraphs.removeChild(paragraphs.children[0]); //removes child at index 0
+			//can also use .lastChild or use .firstChild
+			// eg paragraphs.removeChild(paragraphs.firstChild)
+			paragraphs.removeChild(paragraphs.lastChild);
+		}
+	}
+	
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

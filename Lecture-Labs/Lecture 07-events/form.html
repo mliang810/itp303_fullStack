@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<style>
+		form {
+			width: 500px;
+		}
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			padding-right: 10px;
+			width: 60px;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+		}
+		.error {
+			color: red;
+			font-style: italic;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="text">Form</h1>
+
+	<!-- Forms are contained within form tags-->
+	<!-- have two required attributes - method and action -> helps store information/authenticate people. We're leaving it empty for now-->
+	<form id="form" method="" action="">
+
+		<div class="form-row">
+			<label for="name-input">Name: </label> <!--label tag to label the form boxes--> <!-- the "for" links the label tag and input tag together bc they use the same ID-->
+			<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
+			<div class="error">Error message</div> <!-- error message is a sibling of the input tag-->
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age: </label>
+			<input type="password" id="age-input" name="age-input"/> <!-- input type password makes it appear as dots-->
+
+			<!-- other input types -- radio, checkbox, number, color, etc-->
+
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<button type="submit" id="go-button">Submit</button>
+			<button type="reset" id="go-button">Reset</button> <!-- resets the form-->
+		</div>
+
+	</form>
+
+<script>
+	//three types of --- KEYBOARD EVENTS
+	// .onkeydown, .onkeyup, .onkeypress
+
+	document.onkeydown = function(){
+		console.log("onkeydown") //writes to console when someone clicks a key on their keyboard. example of use: webbrowser games that use the spacebar to jump etc.
+	}
+	document.onkeyup = function(){
+		console.log("onkeyup") //writes to console when someone lifts the key from their keyboard. So if someone presses a key, this records when they let go. 
+	}
+
+
+	let counter = 0;
+	//keypress is very similar to onkeydown, but keypress doesnt register buttons like enter, control, arrow buttons, alt etc. Only detects typing keys
+	document.onkeypress = function(event){ //if you put event in the function, itll tell us what was pressed.
+		//keycode is more reliable than key for telling what the eprson actually typed. this is because key is based on the english keyboard.
+		//console.log("onkeypress");
+		console.log(event); //
+		console.log(event.key); //javascript uses dot notation for objects
+		console.log(event.keyCode)
+
+		//display the keys i pressed in the browser
+		//document.querySelector("#text").innerHTML = event.key;
+		//.innerHTML allows you do grab whatever is inside the tag that you specified
+
+		//append the keys pressed to the text instead of replacing
+		//document.querySelector("#text").innerHTML = document.querySelector("#text").innerHTML + event.key;
+
+		//shorter way of doing that
+		//document.querySelector("#text").innerHTML += event.key;
+
+
+		//here we cleared the word "form" out of h1 by replacing it with the first letter, then we let it append. 
+		
+		if(counter == 0){
+			document.querySelector("#text").innerHTML = event.key;
+			counter++;
+		}
+		document.querySelector("#text").innerHTML += event.key
+	}
+
+
+	//javaScript can also detect scroll events. 
+	document.onscroll = function(){
+
+	}
+
+	// -- JS data types - dont need to assign them
+	let number = 8;
+	let number1 = 8.6;
+	let text = "hi";
+
+	//--- arithmetic in JS
+	console.log(1+7);
+	console.log(1+2.5);
+	console.log(1+"1"); //it concatenates the two numbers together and makes it a string --> returns "11"
+	console.log("hi"+"1");
+	console.log(9-7);
+	console.log(1-7);
+	console.log(7/8);
+	console.log(4*1.3);
+
+
+	//----JS also has 3 special floating numbers
+	console.log(1/0); //calculates INFINITY, which is a data type
+	console.log(-1/0); //-Infinity
+	console.log(0/0); //NaN ---> means not a number
+	console.log(9/"hi") //will also return NaN
+
+
+	//---convert data types 
+	let string1 = "1000";
+	let string2 = "10.343";
+	//use parse[datatype]([thing you want to change])
+	console.log(parseInt(string1));
+	console.log(parseFloat(string2)); 
+
+
+	//---STRINGS
+	//strings are arrays of characters
+	//strings are immutable -- means you cant change it after you create it
+	let name = "nayeon";
+	console.log(name[0]);
+	console.log(name.length);
+	console.log(name.charAt(2));
+
+	// .indexOf() returns the index/position that the character is in
+	console.log(name.indexOf("n"));
+	//returns the first match. Doesnt return the rest. 
+
+	//lastIndexOf() goes from the back.
+	console.log(name.lastIndexOf("n"));
+
+	console.log(name.toUpperCase()); //not changing the name string itself, its creating a copy of the string and uppercases that one. This is because its IMMUTABLE.
+	console.log(name); //proof that its unchanged 
+
+
+
+
+	//---- FORM EVENTS
+	// 3 different form events
+	// 1. .onchange - on specific fields
+	document.querySelector("#name-input").onchange = function(){
+		//onchanged gets triggered when the focus changes from this input tag
+		console.log("name changed");
+	}
+
+	// 2. .oninput - on specific fields
+	document.querySelector("#name-input").oninput = function(){
+		//everytime the user types into the input, this function gets triggered
+		//this is more real time. Good for when youre checking the number of characters, etc. 
+		console.log("on input!")
+		
+		//get what the user is typing
+		let userInput = document.querySelector("#name-input").value;
+		console.log(userInput)
+	}
+
+	// 3. .onsubmit - on the entire form
+	// onsubmit is great for checking ALL the form elements before it is submitted
+	document.querySelector("#form").onsubmit = function(event){
+
+		//by default, forms are going to try to submit itself if the form is subbmitted. We are going to prevent the form from being submitted so that we can do some validation checks
+		event.preventDefault(); //prevents submission event (default)
+
+		console.log("onsubmit!!")
+
+		//can do some validation! 
+		//check that the name field is NOT empty
+		//grab the user input
+		let nameInput = document.querySelector("#name-input").value;
+
+		//trim() - removes any leading or trailing whitespaces
+		if (nameInput.trim().length == 0){
+			console.log("name is empty!!")
+
+			//error checking
+			document.querySelector("#name-input").nextElementSibling.style.visibility = "visible";
+			document.querySelector("#name-input").nextElementSibling.innerHTML = "Name cannot be empty";
+		}
+		else{
+			console.log("name is good!!")
+			//hide the error messsage
+			document.querySelector("#name-input").nextElementSibling.style.visibility = "hidden";
+
+			document.querySelector("#cart-message").style.visibility = "hidden"; //hide empty
+			document.querySelector(".cart-item").classList.remove("hide"); //show the shirt order
+
+		}
+	}
+
+
+
+</script>
+</body>
+</html>

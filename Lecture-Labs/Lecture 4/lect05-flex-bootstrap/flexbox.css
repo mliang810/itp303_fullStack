@@ -1,0 +1,56 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+
+/*asterisk (*) means select ALL the elements in this HTML file*/
+
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; 
+	/*whichever flex item that has the highest order value will
+	be displayed last. By default all flex items have the order: 0;*/
+	order:1;
+}
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+  border: 10px solid skyblue;
+  display:flex;
+  height: 400px;
+  flex-direction: row;
+  /*flex diecrection determines the MAIN AXIS. The opposite of the main 
+  axis is called cross axis*/
+
+  /*width and height of the boxes is flexible 
+  + follows the height of its parent*/
+
+  /*by default, all flex items (children) are squished if needed 
+  to fit in the same row. It will ignore the width property to fit in one row*/
+
+  /*Flex Wrap: by default, flex items will all try to fit into one line. 
+  You can change that with flex wrap.*/
+	flex-wrap: wrap;
+
+	/*justify-content: -	Defines alignment along the main axis 
+	(which depends on flex direction) + centers it along the main axis.*/
+	justify-content: space-between;
+
+	/*align-items- Defines alignment along the cross axis (opposite direction of main axis);*/
+	align-items: flex-start;
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+  font-size: 28px;
+  width:100px;
+}

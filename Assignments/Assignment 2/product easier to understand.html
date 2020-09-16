@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Michelle's Store</title>
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+	<meta charset="UTF-8">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,700;1,400&display=swap');
+
+		body{
+			font-family: 'Raleway', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		#container{
+			margin:auto;
+			max-width: 1000px;
+			min-width: 400px;
+		}
+
+		#name{
+			background-color: beige;
+			text-align: center;
+			font-size: 40px
+		}
+
+		#itemNameMobile{
+				display: none;
+		}
+
+		#mainproduct{
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+			padding:20px;
+		}
+
+		#promocode{
+			border: 2px solid black;
+			background-color: lightyellow;
+			padding:5px;
+			margin-top: 15px;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		#reviews{
+			width:200px;
+		}
+
+		.column{
+			float:left;
+			width: 50%;
+		}
+
+		.column img{
+			width:100%;
+		}
+
+		#mainproduct:after{
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		#others{
+			margin-left:auto;
+			margin-right:auto;
+			padding:20px;
+			font-size: 30px;
+		}
+
+		#others .row{
+			margin-left:auto;
+			margin-right:auto;
+		}
+
+		#others .row .item{
+			background-color: white;
+			width:23%;
+			margin:5px;
+			border:2px black dotted;
+			box-sizing: border-box;
+			position: relative;
+		}
+
+		#others .row .item img{
+			width:100%;
+			text-align:center;
+		}
+
+		.item:hover .overlay{
+			opacity: 80%;
+		}
+
+		.item .overlay{
+			opacity: 0;
+			background-color: beige;
+			position: absolute;
+			width:100%;
+			height:100%;
+		}
+
+		.row:after {
+			content: "";
+			clear: both;
+			display: table;
+		}	
+
+		@media(min-width: 591px){
+			#others .row .item{
+				float:left;
+			}
+		}
+
+		@media(max-width: 768px){
+			#others .row .item{
+				text-align:center;
+				width:48%;
+			}
+		}
+
+		@media(max-width: 591px){
+			#others .row .item{
+				width:60%;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				margin-left:auto; /*doesnt work?*/
+				margin-right:auto; /*doesnt work?*/
+			}			
+
+			#mainproduct .column{
+				width:98%;
+			}
+			#itemName{
+				display: none;
+			}
+			#itemNameMobile{
+				display: block;
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="name">
+			<strong>Michelle Liang's Store</strong>
+	</div>
+	<div id="container">
+		<div id="mainproduct">
+			<div class="column">
+				<h2 id="itemNameMobile">Shiba Inu Plush</h2>
+				<img src="images/shiba.jpg" alt="shiba plush product" id="productImage"/>
+				<div id="promocode">
+				Use promocode SHIBALUV10 for 10% off!
+				</div>
+
+			</div>
+
+			<div class="column">
+				<h2 id="itemName">Shiba Inu Plush</h2>
+				<p><strong>Price:</strong> $25.99</p>
+				<img src="images/reviews.png" alt="reviews" id="reviews">
+				<ul>
+					<li>Materials: Premium plush fabrics; Feather PP cotton filler - Soft plush toys.</li>
+					<li>High quality inner is really comfortable to hold and supprot your lumbar.</li>
+					<li>Height: 15.7 "(40cm), 19.6"(50cm). </li>
+					<li>Comfortable Companion：Pillow Pets presents super soft, cute, & adorable stuffed animals that unfold into fuzzy pillows for sleep. Kids, teens, & adults love these classic & collectible comfy critters.</li>
+					<li>Best Gift: Children of all ages will love this plush toy for play & as a large pillow for reading, watching television, studying, and sleepy nap time.</li>
+					<li>Suitable: Suitable for bedroom, living room, family, office, etc. Office Pillows: ease work fatigue and give you a relaxing moment.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="others">
+			<p><strong>Related Products</strong></p>
+			<div class="row">
+				<div class="item">
+					<div class="overlay">
+						<span class="nameoverlay">Music Dog</span>
+					</div>
+					<img src="images/shibawphones.jpg" alt="product1 - Shiba With Headphones"/>
+				</div>
+
+				<div class="item">
+					<div class="overlay">
+						<span class="nameoverlay">Whale Dog</span>
+					</div>
+					<img src="images/whale.jpg" alt="product2 - Whale Plush"/>
+				</div>
+
+				<div class="item">
+					<div class="overlay">
+						<span class="nameoverlay">Seal Dog</span>
+					</div>
+					<br><img src="images/seal.jpg" alt="product3 - Fat Seal"/>
+					<br><br>
+				</div>
+
+				<div class="item">
+					<div class="overlay">
+						<span class="nameoverlay">Gray Shiba</span>
+					</div>
+					<img src="images/grayshiba.jpg" alt="product4 - Gray Shiba Plush"/>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

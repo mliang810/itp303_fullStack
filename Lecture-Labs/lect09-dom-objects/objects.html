@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Objects</title>
+	<style>
+		#people {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h1>People</h1>
+	<div id="people">
+	</div>
+
+	<script>
+
+		//Intro to making objects in JS
+		let person = { //object --> comma between all attributes
+			name: "Tommy Trojan",
+			age: 21,
+			hobbies: ["standing", "guarding USC", "eating salad"],
+			phone: { //object within an object
+				cell:"123-123-1231",
+				home: "562-999-9999"
+			},
+
+			greet: function() {
+				console.log("Hello " + this.name);
+			}
+		};
+		console.log(person);
+		console.log(person.name);
+		console.log(person.hobbies[0]);
+		person.age = 11;
+		console.log(person.age);
+		person.greet();
+
+
+		let person2={
+			name: "Traveler",
+			age: 55
+		}
+
+		console.log(person2.name);
+
+
+		// 2. Constructor Function syntax
+		function Person (fullName, age){
+			this.name = fullName;
+			this.age = age;
+			this.school = "USC";
+			this.greet = function(){
+				console.log("hi")
+			}
+		}
+
+		//now can make instances of your created class
+		let joe = new Person("Joe Burrito", 18);
+		let jimmy = new Person("Jimmy Joe", 48);
+
+		console.log(joe);
+		console.log(joe.name);
+		console.log(joe.age);
+		console.log(jimmy.name + " SUCKS");
+
+		jimmy.age = 50;
+		console.log(jimmy.age);
+		console.log(jimmy.school);
+
+
+		//ARRAYS - when working with a lot of objects, you can store these in an array.
+		let peopleList = [];
+
+		//arrays dont have to be the same data type in JS
+		peopleList.push(joe, jimmy, person, person2);
+		console.log(peopleList);
+
+		//display all people in peopleList
+		for(let i = 0; i<peopleList.length; i++){
+			let pElement = document.createElement("p");
+			pElement.innerHTML = peopleList[i].name;
+
+			//append this to the div id #people
+			document.querySelector("#people").appendChild(pElement);
+		}
+
+		
+
+	</script>
+</body>
+</html>

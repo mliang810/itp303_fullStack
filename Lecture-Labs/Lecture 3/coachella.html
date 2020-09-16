@@ -1,0 +1,126 @@
+<!-- we're using the box model method -->
+
+<!DOCTYPE html> <!--trick: type html and click tab for it to write your skeleton-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Coachella</title>
+	<style>
+		html, body{ /*removing any extra spacing from the perimeter of the whole browser*/
+			margin:0;
+			padding:0;
+		}
+
+		#about{/*contains all of the divs that we want to center*/
+			background-color:lightpink;
+			width:720px; /*width must be calculated right if you want the columns to fit*/
+			margin-right:auto;
+			margin-left:auto;
+		}
+
+		#header{
+			background-color: #f5dfc0;
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		#header h1{ /* can do this to say ONLY the h1 within the header*/
+			color: blue;
+			margin-top: 0px;
+			margin-bottom:0px;
+		}
+
+		#about #column1{ /*not neccessary to say #about, its just nice to have so we can easily see that column1 is a child of about*/
+			background-color: lightgreen;
+			width: 300px;
+			float: left;
+		}
+		
+		#about #column2{
+			background-color: lightpink;
+			width: 400px;
+			float: left;
+			/*you can set heights, but try not to :(*/;
+			padding-left:10px;
+			padding-right:10px;
+			/*padding makes the width of a div bigger so watch out for that!*/
+		}
+
+		.clearfloat{
+			clear: both; /*can clear left OR right speicifally, but here we're saying clear everything aka both */
+		}
+
+		#artists{
+			background-color: skyblue;
+			width:900px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		#artists .artist-column{
+			background-color: #fef587;
+			width:248px;
+			float:left;
+			/*adds padding to top right left bottom */
+			padding:10px;
+			margin:15px; /*changes it outside of div */
+			border: 1px solid black; /*border also adds to the width of a div */
+		}
+
+		#artists img{
+			width: 100%; /*will be 100% as wide as the parent (aka the column) so if you wrote 80% itll be 80% of 300px) */
+		}
+
+		#artists h2{
+			text-align:center;
+		}
+
+		#footer{
+			background-color: black;
+			color:white;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>Coachella</h1>
+	</div>
+
+	<div id="about">
+		<div id="column1">
+			<img src="images/coachella.png" alt="palm tree"/>
+		</div>
+
+		<div id="column2">
+			<p>The Coachella Valley Music and Arts Festival (commonly called Coachella or the Coachella Festival) is an annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is organized by Goldenvoice, a subsidiary of AEG Presents. The event features musical artists from many genres of music, including rock, pop, indie, hip hop and electronic dance music, as well as art installations and sculptures. Across the grounds, several stages continuously host live music.</p>
+		</div>
+		<!--stop floating after this column-->
+		<div class="clearfloat"></div>
+
+	</div>
+
+	<div id="artists">
+		<h2>Artists</h2>
+		<div class="artist-column">
+			<img src="images/ariana.jpg" alt="ariana grande"/>
+			<h3>Ariana Grande</h3>
+		</div>
+		<div class="artist-column">
+			<img src="images/ariana.jpg" alt="childish gambino"/>
+			<h3>Childish Gambino</h3>
+		</div>
+		<div class="artist-column">
+			<img src="images/ariana.jpg" alt="blackpink"/>
+			<h3>Blackpink</h3>
+		</div>
+	</div>
+		<!--stop floating after this column-->
+		<div class="clearfloat"></div>
+
+		<div id="footer">
+			Made by Michelle Liang in ITP 303
+		</div>
+
+</body>
+</html>

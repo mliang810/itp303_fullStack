@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 3</title>
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+		* {
+			box-sizing: border-box;
+		}
+		html,body{
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+		}
+		.navbar{
+			display:flex;
+			flex-direction: row;
+			background-color: #A1BD99;
+			justify-content: center;
+		}
+		.item{
+			background-color: #A1BD99;
+			color:white;
+			width:200px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+		}
+
+		.item:hover{
+			background-color: gray;
+		}
+
+		@media(max-width: 991px){
+			.navbar{
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			.item{
+				width:50%;
+			}
+		}
+
+		@media(max-width: 767px){
+			.navbar{
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			.item{
+				width:100%;
+			}
+		}
+			
+
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<a href="#" class="item">Home</a>
+		<a href="#" class="item">Team</a>
+		<a href="#" class="item">About</a>			
+		<a href="#" class="item">Contact</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+
+html,body{
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar{
+	background-color: gray;
+}
+
+#header{
+	background-image: url("images/kevin hong waterfall.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+	text-align: center;
+	font-size: 70px;
+	color: white;
+}
+#header #top{
+	padding:60px;
+}
+#header h2{
+	padding-top: 10px;
+	font-size: 20px;
+}
+
+.jumbotron{
+	background-image: url("images/kevin hong waterfall.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+	color: white;
+	height:300px;
+}
+.container{
+	padding-left: auto;
+	padding-right: auto;
+}
+
+.col{
+	padding-top: 40px;
+}
+
+.mobileline{
+	border-bottom:3px solid lightgray;
+	padding-top: 25px;
+	padding-bottom: 40px;
+}
+
+.col img{
+	max-width: 375px;
+	min-width: 250px;
+	display:block;
+	margin:auto;
+}
+
+.team img{
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+}
+
+#footer{
+	padding-top: 20px;
+}
+
+.team h2{
+	padding-top: 20px;
+}
+
+@media(min-width: 768px){ /*tablet*/
+	.col{
+		border-bottom:3px solid lightgray;
+		padding: 40px;
+	}
+	.team{
+		border-style:none;
+	}
+	.team img{
+		width:200px;
+		height: 200px;
+		object-fit: cover;
+	}
+}
+
+@media(min-width: 992px){ /*desktop*/
+	.col{
+		border-bottom:3px solid lightgray;
+		padding: 40px;
+	}
+	.team{
+		border-style:none;
+	}
+	.team img{
+		max-width: 60%;
+		object-fit: cover;
+	}
+
+}
